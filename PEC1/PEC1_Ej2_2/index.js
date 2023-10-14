@@ -6,6 +6,10 @@ const amountEl_two = document.getElementById('amount-two');
 const rateEl = document.getElementById('rate');
 const swap = document.getElementById('swap');
 
+//  Add min atribute to inputs
+amountEl_one.setAttribute("min", "0");
+amountEl_two.setAttribute("min", "0");
+
 // Fetch exchange rates and update the DOM
 function calculate() {  
     const currency_one = currencyEl_one.value;
@@ -15,10 +19,22 @@ function calculate() {
         .then(res => res.json())
         .then(data => {
             const rate = data.rates[currency_two];
-            
             rateEl.innerText = `1 ${currency_one} = ${rate} ${currency_two}`;
-
             amountEl_two.value = (amountEl_one.value * rate).toFixed(2);
+        })
+        .catch(err => {
+            if(typeof err.json === "function") {
+                err.jason().then(jsonError => {
+                    console.log("Json error from API");
+                    console.log(jsonError);
+                }).catch(genericError => {
+                    console.log("Generic error from API");
+                    console.log(err.statusText);
+                });
+            } else { 
+                console.log("Fetch error");
+                console.log(err);
+            }
         });
 }
 

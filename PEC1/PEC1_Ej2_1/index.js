@@ -62,7 +62,7 @@ function checkPasswordsMatch(input1, input2) {
 /* Check password condition (must have 1.Upper, 2.Low, 3.Ciphers,
 4.Signs: ` ~ ! @ # $ % ^ & * ( ) _ + - = { } | [ ] \ : " ; ' < > ? , . /    */
 function checkPassword(input) {
-    const re123 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+    const re123 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
     const re4 = /~!@#\$%\^&\*\(\)_\+-=\{\}\|\[\]\\:"'<>\?,\.\//;
     if(re123.test(input.value) && re4.test(input.value)){
         showSuccess(input);
