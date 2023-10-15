@@ -58,5 +58,3 @@ swap.addEventListener('click', () => {
 });
 
 calculate();
-
-//TODO: Cuando se realiza la consulta al API, indicar estado de espera mediante logo o mensaje por pantalla
