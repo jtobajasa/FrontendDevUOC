@@ -84,6 +84,26 @@
   button:focus {
     outline: 0;
   }
+
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .load {
+    max-width: 20px;
+    max-height: 20px;
+    visibility: hidden;
+  }
+
+  .load.now {
+    visibility: visible;
+    animation: loading 1s infinite linear;
+  }
   
   @media (max-width: 600px) {
     .currency input {
