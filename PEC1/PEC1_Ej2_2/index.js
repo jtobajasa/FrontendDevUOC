@@ -24,7 +24,7 @@ function calculate() {
         })
         .catch(err => {
             if(typeof err.json === "function") {
-                err.jason().then(jsonError => {
+                err.json().then(jsonError => {
                     console.log("Json error from API");
                     console.log(jsonError);
                 }).catch(genericError => {
